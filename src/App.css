@@ -40,6 +40,7 @@ body {
 .Calculator input {
   margin-bottom: 25px;
   border: 2px solid #15A800;
+  border-radius: 10px;
   background: white;
   color: #1F57C3;
   text-align: center;
@@ -48,11 +49,10 @@ body {
   width: 350px;
   height: 65px;
 }
-.Calculator select {
-  border-radius: 10px;
-}
-.Calculator input {
-  border-radius: 20px 20px 80px 80px;
+
+.Calculator input[type="submit"] {
+  background: #15A800;
+  color: white;
 }
 .Calculator .hi {
   margin: 10px;
