@@ -10,7 +10,7 @@ export default function Calculator(props) {
     let usd = props.info;
 
     function calculatingNumber() {
-        setSecondNumber(parseFloat(((firstNumber * firstUnit) - 1) * 0.98 * usd).toFixed(2));
+        setSecondNumber( ((firstNumber * firstUnit) - 1) * 0.98 * usd);
     }
         function changeFirstUnit(event) {
         event.preventDefault();
@@ -19,6 +19,7 @@ export default function Calculator(props) {
     } 
     return (
         <div className="Calculator">
+            <p className="text">Гайда рахувати скільки ти заробив!</p>
             <form onSubmit={event => { event.preventDefault(); calculatingNumber(); }}>
                 <legend>Чи добре ти знайом з клієнтом?</legend>
                 <div>
@@ -36,7 +37,7 @@ export default function Calculator(props) {
                 Вітаю, Дмитро!
             </p>
             <p className="number">
-                Ти заробив: <span className="hi">{secondNumber}</span> гривень   
+                Ти заробив: <p className="hi">{secondNumber}</p> гривень   
             </p>
         </div>
     );

@@ -1,39 +1,44 @@
 body {
   background: #F2F7F2;
-  /* background: ; */
 }
 .App {
   margin: 0 auto;
   padding: 20px;
-  /* color: white; */
   max-width: 450px;
   text-align: center;
 }
 .App p {
   margin: 30px auto;
 }
-.App p:first-child {
+.App .unit {
   color: black;
   font-size: 45px;
   font-weight: 700;
 }
-.App p:last-child {
+.App .count {
+  padding-bottom: 15px;
   color: #15A800;
   font-size: 50px;
   font-weight: 800;
+  border-bottom: 2px dotted #15A800;
+}
+.Calculator .text {
+  color: #1F57C3;
+  font-size: 30px;
+  font-weight: 700;
 }
 .Calculator legend {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: grey;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 900;
 }
 .Calculator select,
 .Calculator input {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   border: 2px solid #15A800;
   background: white;
-  color: #15A800;
+  color: #1F57C3;
   text-align: center;
   font-size: 19px;
   font-weight: 500;
@@ -46,13 +51,12 @@ body {
 .Calculator input {
   border-radius: 20px 20px 80px 80px;
 }
-/* .Calculator p {
-  font-size: 30px;
-} */
 .Calculator .hi {
-  color: black;
+  margin: 10px;
+  color: #15A800;
   font-size: 40px;
 }
 .Calculator .number {
-  font-size: 10px;
+    color: black;
+  font-size: 30px;
 }

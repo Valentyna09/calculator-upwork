@@ -22,8 +22,8 @@ if(rates.loaded) {
     return (
         <div className="App">
           <div>
-          <p>{rates.unitName} зараз коштує:</p>
-          <p>{rates.unitUsd}</p>
+          <p className='unit'>{rates.unitName} зараз коштує:</p>
+          <p className='count'>{rates.unitUsd} грн.</p>
         </div>
         <Calculator info={rates.unitUsd} />
         </div>
