@@ -3,19 +3,23 @@ import React, { useState } from "react";
 export default function Calculator(props) {
     let [firstNumber, setFirstNumber] = useState('');
     let [secondNumber, setSecondNumber] = useState('');
-    let [firstUnit, setFirstUnit] = useState('');
     let first = 0.80;
     let second = 0.90;
     let third = 0.95;
+    let [unit, setUnit] = useState(`${first}`);
     let usd = props.info;
 
     function calculatingNumber() {
-        setSecondNumber( ((firstNumber * firstUnit) - 1) * 0.98 * usd);
+        let x = firstNumber * unit;
+        let y = (x - 1) * 0.98 * usd;
+        setSecondNumber(Math.round(y));
+        
+        // setSecondNumber( ((firstNumber * unit) - 1) * 0.98 * usd );
     }
-        function changeFirstUnit(event) {
+    function changeUnit(event) {
         event.preventDefault();
         setFirstNumber('');
-        setFirstUnit(event.target.value );
+        setUnit(event.target.value );
     } 
     return (
         <div className="Calculator">
@@ -23,21 +27,21 @@ export default function Calculator(props) {
             <form onSubmit={event => { event.preventDefault(); calculatingNumber(); }}>
                 <legend>Чи добре ти знайом з клієнтом?</legend>
                 <div>
-                    <select name="first unit" value={firstUnit} onChange={changeFirstUnit}>
+                    <select name="first unit" value={unit} onChange={changeUnit}>
                         <option value={first}>Ні - заробив з ним менше 500 гривень</option>
                         <option value={second}>Так - заробив з ним більше 500 гривень</option>
                         <option value={third}>Заробив шалену купу грошей</option>
                     </select>
                 </div>
                 <div>
-                    <input onChange={event => { setFirstNumber(event.target.value); }} value={firstNumber} />
+                    <input onChange={event => { setSecondNumber(''); setFirstNumber(event.target.value); }} value={firstNumber} />
                 </div>
             </form>
             <p className="hi">
                 Вітаю, Дмитро!
             </p>
             <p className="number">
-                Ти заробив: <p className="hi">{secondNumber}</p> гривень   
+                Ти заробив: <p className="hi">{secondNumber}</p> грн.  
             </p>
         </div>
     );

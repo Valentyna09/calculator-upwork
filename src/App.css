@@ -22,6 +22,9 @@ body {
   font-weight: 800;
   border-bottom: 2px dotted #15A800;
 }
+.Loading {
+  margin: 50px 150px;
+}
 .Calculator .text {
   color: #1F57C3;
   font-size: 30px;
