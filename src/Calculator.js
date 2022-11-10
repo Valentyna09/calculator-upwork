@@ -27,7 +27,7 @@ export default function Calculator(props) {
     return (
         <div className="Calculator">
             <p className="text">Гайда рахувати скільки ти заробив!</p>
-            <form onSubmit={event => { event.preventDefault(); setmoneyUpwork(firstNumber * unit); }}>
+            <form onSubmit={event => { event.preventDefault(); setmoneyUpwork(Math.round(firstNumber * unit)); }}>
                 <legend>Чи добре ти знайом з клієнтом?</legend>
                 <div>
                     <select name="first unit" value={unit} onChange={changeUnit}>
@@ -40,7 +40,7 @@ export default function Calculator(props) {
                     <input type="text" onChange={event => { setmoneyUpwork(''); setFirstNumber(event.target.value); }} value={firstNumber} />
                 </div>
                 <div>
-                    <input type = "submit" value="Порахувати" onSubmit={event => { event.preventDefault(); setmoneyUpwork(firstNumber * unit); }}/>
+                    <input type = "submit" value="Порахувати" onSubmit={event => { event.preventDefault(); setmoneyUpwork(Math.round(firstNumber * unit)); }}/>
                 </div>
             </form>
             <p className="hi">
@@ -49,12 +49,12 @@ export default function Calculator(props) {
             <p className="number">
                 Ти заробив на UpWork: <p className="hi">{moneyUpwork} $</p>  
             </p>
-            <form onSubmit={event => { event.preventDefault(); setmoneyPayoneer(Math.round(secondNumber - 1)); }}>
+            <form onSubmit={event => { event.preventDefault(); setmoneyPayoneer(secondNumber - 1); }}>
                 <div>
                     <input type="text"  onChange={event => { setmoneyPayoneer(''); setSecondNumber(event.target.value); }} value={secondNumber}/>
                 </div>
                 <div>
-                    <input type = "submit" value="Порахувати" onSubmit={event => { event.preventDefault(); setmoneyPayoneer(Math.round(secondNumber - 1));}} />
+                    <input type = "submit" value="Порахувати" onSubmit={event => { event.preventDefault(); setmoneyPayoneer(secondNumber - 1);}} />
                 </div>
             </form>
             <p className="number">
