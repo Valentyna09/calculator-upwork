@@ -62,4 +62,5 @@ body {
 .Calculator .number {
     color: black;
   font-size: 30px;
+  border-bottom: 3px solid #15A800;
 }

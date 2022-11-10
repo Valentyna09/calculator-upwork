@@ -2,21 +2,22 @@ import React, { useState } from "react";
 
 export default function Calculator(props) {
     let [firstNumber, setFirstNumber] = useState('');
-    // let [secondNumber, setSecondNumber] = useState('');
     let first = 0.80;
     let second = 0.90;
     let third = 0.95;
     let [unit, setUnit] = useState(`${first}`);
+    let [secondNumber, setSecondNumber] = useState('');
+    let [thirdNumber, setThirdNumber] = useState('');
     let usd = props.info;
     let [moneyUpwork, setmoneyUpwork] = useState('');
     let [moneyPayoneer, setmoneyPayoneer] = useState('');
     let [moneyUah, setMoneyUah] = useState('');
 
-    function calculatingNumber() {
-        setmoneyUpwork(firstNumber * unit);
-        setmoneyPayoneer(moneyUpwork - 1);
-        setMoneyUah(Math.round(moneyPayoneer * 0.98 * usd));
-    }
+    // function calculatingNumber() {
+    //     setmoneyUpwork(firstNumber * unit);
+    //     setmoneyPayoneer(moneyUpwork - 1);
+    //     setMoneyUah(Math.round(moneyPayoneer * 0.98 * usd));
+    // }
 
     function changeUnit(event) {
         event.preventDefault();
@@ -26,7 +27,7 @@ export default function Calculator(props) {
     return (
         <div className="Calculator">
             <p className="text">Гайда рахувати скільки ти заробив!</p>
-            <form onSubmit={event => { event.preventDefault(); calculatingNumber(); }}>
+            <form onSubmit={event => { event.preventDefault(); setmoneyUpwork(firstNumber * unit); }}>
                 <legend>Чи добре ти знайом з клієнтом?</legend>
                 <div>
                     <select name="first unit" value={unit} onChange={changeUnit}>
@@ -36,10 +37,10 @@ export default function Calculator(props) {
                     </select>
                 </div>
                 <div>
-                    <input type="text" onChange={event => { setmoneyUpwork(''); setmoneyPayoneer(''); setMoneyUah(''); setFirstNumber(event.target.value); }} value={firstNumber} />
+                    <input type="text" onChange={event => { setmoneyUpwork(''); setFirstNumber(event.target.value); }} value={firstNumber} />
                 </div>
                 <div>
-                    <input type = "submit" value="Порахувати" onSubmit={event => { event.preventDefault(); calculatingNumber(); }}/>
+                    <input type = "submit" value="Порахувати" onSubmit={event => { event.preventDefault(); setmoneyUpwork(firstNumber * unit); }}/>
                 </div>
             </form>
             <p className="hi">
@@ -48,9 +49,26 @@ export default function Calculator(props) {
             <p className="number">
                 Ти заробив на UpWork: <p className="hi">{moneyUpwork} $</p>  
             </p>
+            <form onSubmit={event => { event.preventDefault(); setmoneyPayoneer(secondNumber - 1); }}>
+                <div>
+                    <input type="text"  onChange={event => { setmoneyPayoneer(''); setSecondNumber(event.target.value); }} value={secondNumber}/>
+                </div>
+                <div>
+                    <input type = "submit" value="Порахувати" onSubmit={event => { event.preventDefault(); setmoneyPayoneer(secondNumber - 1); }} />
+                </div>
+            </form>
             <p className="number">
                 На Payoneer ти отримаєш: <p className="hi">{moneyPayoneer} $</p> 
             </p>
+
+            <form onSubmit={event => { event.preventDefault(); setMoneyUah(Math.round(thirdNumber * 0.98 * usd));}}>
+                <div>
+                    <input type="text"  onChange={event => { setMoneyUah(''); setThirdNumber(event.target.value); }} value={thirdNumber}/>
+                </div>
+                <div>
+                    <input type = "submit" value="Порахувати" onSubmit={event => { event.preventDefault(); setMoneyUah(Math.round(thirdNumber * 0.98 * usd));}}/>
+                </div>
+            </form>
             <p className="number">
                 На PrivatBank тобі прийде: <p className="hi">{moneyUah} ₴</p> 
             </p>            
