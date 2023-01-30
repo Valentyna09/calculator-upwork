@@ -14,8 +14,8 @@ export default function App() {
  function exchangeRates(response) {
     setRates({
       loaded: true,
-      unitName: response.data[25].txt,
-      unitUsd: response.data[25].rate,
+      unitName: response.data[24].txt,
+      unitUsd: response.data[24].rate,
     });
   }
 if(rates.loaded) {
