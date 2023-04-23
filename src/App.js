@@ -20,10 +20,11 @@ export default function App() {
   }
 if(rates.loaded) {
     return (
-        <div className="App">
+      <div className="App">
+        <h1>UpWork <br/> Income Calculator</h1>
           <div>
             <p className='unit'>{rates.unitName} зараз коштує:</p>
-            <p className='count'>{rates.unitUsd} грн.</p>
+            <p className='count'>{rates.unitUsd} UAH</p>
           </div>
           <Calculator info={rates.unitUsd} />
         </div>
