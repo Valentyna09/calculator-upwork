@@ -20,7 +20,7 @@ export default function App() {
  //  }
 
     function apiUrl() {
-    let url = `https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=11`;
+    let url = `https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5`;
     axios.get(url).then(exchangeRates);
   }
 
