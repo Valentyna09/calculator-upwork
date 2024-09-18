@@ -16,7 +16,7 @@ export default function Calculator(props) {
 
     return (
         <div className="Calculator">
-            <form onSubmit={event => { event.preventDefault(); setmoneyUpwork((firstNumber * 0.90).toFixed(2)); setSecondNumber(moneyUpwork); }}>
+            <form onSubmit={event => { event.preventDefault(); setmoneyUpwork((firstNumber * 0.88).toFixed(2)); setSecondNumber(moneyUpwork); }}>
                 <h2>Загальна сума заробітку:</h2>
                 <div>
                     <input type="text" onChange={event => { setmoneyUpwork(''); setFirstNumber(event.target.value); }} value={firstNumber} />
