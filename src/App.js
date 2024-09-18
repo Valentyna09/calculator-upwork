@@ -18,15 +18,11 @@ export default function App() {
  //      unitUsd: response.data[24].rate,
  //    });
  //  }
-  function apiUrl() {
-  let url = 'https://cors-anywhere.herokuapp.com/https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11';
-  
-  axios.get(url).then(response => {
-    exchangeRates(response.data); // Викликає функцію з переданими даними
-  }).catch(error => {
-    console.error("Error fetching exchange rates:", error);
-  });
-}
+
+    function apiUrl() {
+    let url = `https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=11`;
+    axios.get(url).then(exchangeRates);
+  }
 
  function exchangeRates(response) {
     setRates({
