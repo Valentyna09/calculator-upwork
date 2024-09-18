@@ -19,7 +19,7 @@ export default function App() {
  //    });
  //  }
   function apiUrl() {
-    let url = `https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11`;
+    let url = fetch('https://cors-anywhere.herokuapp.com/https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11');
     axios.get(url).then(exchangeRates);
   }
  function exchangeRates(response) {
