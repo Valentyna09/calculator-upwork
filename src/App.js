@@ -7,30 +7,30 @@ import './App.css';
 export default function App() {
   let [rates, setRates] = useState({ loaded: false });
   
- //  function apiUrl() {
- //    let url = `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json`;
- //    axios.get(url).then(exchangeRates);
- //  }
- // function exchangeRates(response) {
- //    setRates({
- //      loaded: true,
- //      unitName: response.data[24].txt,
- //      unitUsd: response.data[24].rate,
- //    });
- //  }
-
-    function apiUrl() {
-    let url = `https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5`;
+  function apiUrl() {
+    let url = `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json`;
     axios.get(url).then(exchangeRates);
   }
-
  function exchangeRates(response) {
     setRates({
       loaded: true,
-      unitName: response.data[2].ccy,
-      unitUsd: response.data[2].buy,
+      unitName: response.data[24].txt,
+      unitUsd: response.data[24].rate,
     });
   }
+
+ //    function apiUrl() {
+ //    let url = `https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5`;
+ //    axios.get(url).then(exchangeRates);
+ //  }
+
+ // function exchangeRates(response) {
+ //    setRates({
+ //      loaded: true,
+ //      unitName: response.data[2].ccy,
+ //      unitUsd: response.data[2].buy,
+ //    });
+ //  }
 
   
 if(rates.loaded) {
