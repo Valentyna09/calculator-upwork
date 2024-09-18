@@ -19,9 +19,15 @@ export default function App() {
  //    });
  //  }
   function apiUrl() {
-    let url = fetch('https://cors-anywhere.herokuapp.com/https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11');
-    axios.get(url).then(exchangeRates);
-  }
+  let url = 'https://cors-anywhere.herokuapp.com/https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11';
+  
+  axios.get(url).then(response => {
+    exchangeRates(response.data); // Викликає функцію з переданими даними
+  }).catch(error => {
+    console.error("Error fetching exchange rates:", error);
+  });
+}
+
  function exchangeRates(response) {
     setRates({
       loaded: true,
