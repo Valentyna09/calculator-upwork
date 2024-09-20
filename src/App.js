@@ -26,7 +26,7 @@ if(rates.loaded) {
       <div className="App">
         <h1>UpWork <br/> Income Calculator</h1>
           <div>
-            // <p className='unit'>{rates.unitName} зараз коштує:</p>
+            {/* <p className='unit'>{rates.unitName} зараз коштує:</p>  Comment */}
             <p className='unit'>USD зараз коштує:</p>
             <p className='count'>{rates.unitUsd} UAH</p>
           </div>
