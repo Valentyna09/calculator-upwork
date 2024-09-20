@@ -28,7 +28,7 @@ export default function App() {
     setRates({
       loaded: true,
       // unitName: response.data[0].ccy,
-      unitUsd: response.data[1].rateBuy,
+      unitUsd: response.data[0].rateBuy,
     });
   }
 
