@@ -27,7 +27,7 @@ export default function App() {
  function exchangeRates(response) {
     setRates({
       loaded: true,
-      // unitName: response.data[1].ccy,
+      // unitName: response.data[0].ccy,
       unitUsd: response.data[1].rateBuy,
     });
   }
